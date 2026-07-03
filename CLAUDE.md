@@ -2,6 +2,11 @@
 
 Turborepo starter for Vite + React apps with a shared Base UI component library.
 
+**Read `VISION.md` for product direction** — the north star, guiding principle,
+values, components, non-goals, and open questions. Use it to judge whether a change
+serves the product. (It ships as a template; fill it before building features. The
+always-on short form is `.claude/vision-digest.md`, injected each session.)
+
 ## Stack
 
 - TypeScript, React 19 (React Compiler), Vite (rolldown-vite), TanStack Router
