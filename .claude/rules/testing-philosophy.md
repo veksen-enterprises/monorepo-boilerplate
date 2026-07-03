@@ -10,15 +10,15 @@ The principles below apply to every test in this codebase, regardless of layer.
 
 Classify every behavior by **message direction** and **type** (Sandi Metz, "Magic Tricks of Testing"):
 
-| Message | Query (returns value) | Command (causes side effect) |
-|---|---|---|
-| **Incoming** | Assert the return value | Assert direct public side effects |
-| **Outgoing** | Do NOT test (stub for setup only) | Mock and verify the message was sent |
-| **To self (private)** | Do NOT test | Do NOT test |
+| Message               | Query (returns value)             | Command (causes side effect)         |
+| --------------------- | --------------------------------- | ------------------------------------ |
+| **Incoming**          | Assert the return value           | Assert direct public side effects    |
+| **Outgoing**          | Do NOT test (stub for setup only) | Mock and verify the message was sent |
+| **To self (private)** | Do NOT test                       | Do NOT test                          |
 
 - **Incoming messages** are your public API. Test what they return or what observable state they change.
 - **Outgoing commands** to external systems (analytics, third-party APIs, webhooks) are the only place to verify that a call was made. The call IS the behavior.
-- **Outgoing queries** to collaborators are tested as incoming messages on the *receiving* side. Testing them on the sender is duplication.
+- **Outgoing queries** to collaborators are tested as incoming messages on the _receiving_ side. Testing them on the sender is duplication.
 - **Private methods** are implementation details. If you feel the urge to test one, extract it into its own module and test its public interface.
 
 ## Mock discipline: The Khorikov Framework
@@ -29,6 +29,7 @@ Decide what to mock based on **managed vs unmanaged dependencies** (Vladimir Kho
 - **Unmanaged dependencies** (network, third-party APIs, browser APIs unavailable in the test env): Other systems own the contract. MOCK these.
 
 In practice for this project:
+
 - **Mock**: network calls (`fetch`, external APIs — prefer MSW over stubbing `fetch`), time/dates (`vi.useFakeTimers`), browser APIs not available under jsdom (e.g. `matchMedia`, `IntersectionObserver`), third-party SDKs.
 - **Do NOT mock**: your own utilities, your own components, your own hooks, context providers (wrap with the real provider instead).
 
@@ -48,11 +49,11 @@ For everything else, assert the **end result** — the return value or the rende
 
 Tests are specifications. Name them after the behavior, not the implementation.
 
-| Bad (describes mechanism) | Good (describes behavior) |
-|---|---|
-| should call the store's setter | should update the count when clicked |
-| should render component correctly | should show the user's name and avatar |
-| should trigger onClick handler | should open the dialog when the button is pressed |
+| Bad (describes mechanism)         | Good (describes behavior)                         |
+| --------------------------------- | ------------------------------------------------- |
+| should call the store's setter    | should update the count when clicked              |
+| should render component correctly | should show the user's name and avatar            |
+| should trigger onClick handler    | should open the dialog when the button is pressed |
 
 ## Test structure
 
@@ -73,12 +74,12 @@ Prefer inline setup or pure `setup()` functions over deeply nested `describe` + 
 
 For frontend code, integration tests are the sweet spot: "Write tests. Not too many. Mostly integration." The more your tests resemble how users interact with your software, the more confidence they provide.
 
-| Layer | Volume | What it catches |
-|---|---|---|
-| **Static** (TypeScript, OxLint) | Automatic | Type errors, lint violations |
-| **Unit** (pure functions, helpers) | Many, fast | Logic bugs in isolated functions |
-| **Integration** (components + providers) | Most investment here | Wiring bugs, rendering, user flows |
-| **E2E** | Few, high-value paths only | Full system integration |
+| Layer                                    | Volume                     | What it catches                    |
+| ---------------------------------------- | -------------------------- | ---------------------------------- |
+| **Static** (TypeScript, OxLint)          | Automatic                  | Type errors, lint violations       |
+| **Unit** (pure functions, helpers)       | Many, fast                 | Logic bugs in isolated functions   |
+| **Integration** (components + providers) | Most investment here       | Wiring bugs, rendering, user flows |
+| **E2E**                                  | Few, high-value paths only | Full system integration            |
 
 Push tests as far down as possible. If a unit test covers the case, don't duplicate it in an integration test. If an integration test covers it, don't add an E2E test.
 
