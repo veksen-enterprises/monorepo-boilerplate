@@ -1,0 +1,5 @@
+[
+  "packages/ui/src/button/button.tsx",
+  "packages/ui/src/dialog/dialog.tsx",
+  "packages/ui/src/input/input.tsx"
+]
