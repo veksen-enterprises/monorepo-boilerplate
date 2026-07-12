@@ -25,3 +25,4 @@ Detailed standards for each layer, with rationale from Metz, Fowler, Khorikov, a
 - **`testing-philosophy.md`** — cross-cutting: the Metz message grid, Khorikov's managed/unmanaged dependency framework, when to use `toHaveBeenCalledWith`, test naming, the testing trophy.
 - **`testing-react.md`** — React components and hooks: Testing Library query priority, `userEvent`, network mocking, what to test vs. not.
 - **`testing-utilities.md`** — pure functions/helpers: input/output testing, edge cases, time-dependent functions, factory functions.
+- **`testing-api.md`** — backend/API (when you add one): HTTP-boundary integration tests through the real app, and service/data-layer tests against a real database. Framework-agnostic.
