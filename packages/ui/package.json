@@ -25,7 +25,7 @@
     "test:coverage": "vitest run --coverage"
   },
   "dependencies": {
-    "@base-ui/react": "^1.1.0",
+    "@base-ui/react": "^1.6.0",
     "cva": "^1.0.0-beta.4"
   },
   "devDependencies": {
