@@ -35,7 +35,7 @@
     "drizzle-kit": "^0.31.10",
     "pino-pretty": "^13.1.1",
     "tsx": "^4.23.0",
-    "typescript": "~5.9.3",
+    "typescript": "^7.0.2",
     "vitest": "^4.0.18"
   }
 }

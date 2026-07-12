@@ -21,6 +21,6 @@
     "@bufbuild/protoc-gen-es": "^2.9.0",
     "@connectrpc/protoc-gen-connect-query": "^2.1.0",
     "@repo/typescript-config": "*",
-    "typescript": "~5.9.3"
+    "typescript": "^7.0.2"
   }
 }
