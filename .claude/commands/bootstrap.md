@@ -1,6 +1,11 @@
 Set up a new project from scratch (or a major new area of this one) using a disciplined,
 issue-driven approach. This starter is the base; bootstrap the domain on top of it.
 
+**First, backfill the starter's blanks.** `docs/getting-started.md` is the step-by-step
+checklist of every placeholder this boilerplate ships — repo name/remote, vision, context,
+design tokens, database, MCP, skills, demo cleanup — with how to fill or delete each. Walk it
+before or alongside the issue planning below; don't leave templates half-filled.
+
 Project description: $ARGUMENTS
 
 ## Process

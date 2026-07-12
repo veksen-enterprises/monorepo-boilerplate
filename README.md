@@ -1,5 +1,9 @@
 # Turborepo Tailwind CSS starter
 
+> **Using this as a boilerplate?** Follow [`docs/getting-started.md`](docs/getting-started.md)
+> to backfill the placeholders (vision, context, design tokens, database, MCP, skills) and
+> strip the demo. Agents: `CLAUDE.md` is the charter; `/bootstrap` runs the setup flow.
+
 ## What's inside?
 
 This Turborepo includes the following packages/apps:

@@ -2,6 +2,10 @@
 
 Turborepo starter for Vite + React apps with a shared Base UI component library.
 
+**Starting a new project from this boilerplate?** Follow `docs/getting-started.md` — the
+step-by-step runbook for backfilling every placeholder (repo name, vision, context, design
+tokens, database, MCP, skills) and stripping the demo.
+
 **Read `VISION.md` for product direction** — the north star, guiding principle,
 values, components, non-goals, and open questions. Use it to judge whether a change
 serves the product. (It ships as a template; fill it before building features. The
@@ -38,6 +42,14 @@ npm run build         # turbo run build
 ```
 
 Do NOT run `npm run dev` or `npm run build` unless explicitly asked (`dev` is long-running and noisy).
+
+## Local Database
+
+No database is wired in by default. When you add one, follow `.claude/rules/database.md` and
+`migrations.md`: `docker compose up -d` starts a local Postgres (the house default — swap if
+needed), then `cp .env.example .env` and set `DATABASE_URL`. Migrations are generated and
+write-once; `.claude/hooks/block-manual-migrations.sh` blocks hand-editing the migrations
+directory. Delete these pieces if the project has no DB.
 
 ## Architecture
 
