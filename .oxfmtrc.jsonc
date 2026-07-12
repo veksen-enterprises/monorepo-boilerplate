@@ -23,7 +23,10 @@
   },
   "experimentalSortImports": {
     "customGroups": [
-      { "elementNamePattern": ["react", "react-*"], "groupName": "react" },
+      {
+        "elementNamePattern": ["react", "react/**", "react-*", "react-*/**"],
+        "groupName": "react",
+      },
     ],
     "groups": [
       "builtin",
