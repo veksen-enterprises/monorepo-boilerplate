@@ -18,7 +18,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "npm run format -- \"$TOOL_INPUT_FILE_PATH\"",
+            "command": ".claude/hooks/format-file.sh",
             "timeout": 30000
           },
           {
