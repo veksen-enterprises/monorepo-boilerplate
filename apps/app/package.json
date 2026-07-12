@@ -49,7 +49,7 @@
     "@vitest/coverage-v8": "^4.1.10",
     "babel-plugin-react-compiler": "^1.0.0",
     "jsdom": "^29.1.1",
-    "lightningcss-darwin-arm64": "^1.31.1",
+    "lightningcss-darwin-arm64": "^1.32.0",
     "typescript": "^7.0.2",
     "vite": "^8.1.4",
     "vitest": "^4.1.10"
