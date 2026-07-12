@@ -42,7 +42,7 @@
     "tailwind-merge": "^3.4.0",
     "tailwindcss": "^4.1.18",
     "typescript": "^7.0.2",
-    "vitest": "^4.0.18"
+    "vitest": "^4.1.10"
   },
   "peerDependencies": {
     "react": "^19"

@@ -14,7 +14,7 @@
     "dev": "tsc --watch"
   },
   "dependencies": {
-    "vitest": "^4.0.18"
+    "vitest": "^4.1.10"
   },
   "devDependencies": {
     "@repo/typescript-config": "*",
