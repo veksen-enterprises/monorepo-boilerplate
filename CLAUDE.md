@@ -89,3 +89,4 @@ See `.claude/rules/git-workflow.md` for full conventions.
 
 - `.claude/skills/` bundles third-party skills vendored via [`npx skills`](https://github.com/vercel-labs/skills) from `mattpocock/skills` (engineering/workflow) and `emilkowalski/skills` (design/motion). Sources and hashes are tracked in `skills-lock.json`.
 - Update or prune with `npx skills check` / `npx skills add`. The vendored tree is excluded from oxfmt/oxlint — don't hand-edit skills, re-sync from source.
+- `react-doctor` is repo-owned (not tracked by `skills-lock.json`): it wraps `npx react-doctor` to scan React changes for lint/a11y/perf/architecture regressions. `/finish` runs it on React diffs.
