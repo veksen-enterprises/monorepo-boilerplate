@@ -1,0 +1,22 @@
+# Local development services. Postgres is the house default — swap the image and env
+# (mysql, mariadb, …) if your stack differs, or delete this file if the project has no DB.
+# Start with `docker compose up -d`, then copy .env.example to .env and set DATABASE_URL.
+services:
+  postgres:
+    image: postgres:17
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: app
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD", "pg_isready", "-U", "postgres"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+volumes:
+  pgdata:

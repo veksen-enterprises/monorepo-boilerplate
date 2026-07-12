@@ -3,6 +3,8 @@
     "**/routeTree.gen.ts",
     ".claude/skills/**",
     "skills-lock.json",
+    "**/migrations/**",
+    "**/drizzle/**",
   ],
   "printWidth": 80,
   "arrowParens": "always",

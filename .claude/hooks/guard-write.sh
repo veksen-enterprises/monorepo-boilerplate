@@ -3,7 +3,9 @@
 file_path=$(jq -r '.tool_input.file_path // ""')
 
 case "$file_path" in
-  *.env|*.env.*|*/.env|*/.env.*|*.lock|*/.git/*)
+  # Committed, secret-free example env files are allowed.
+  *.env.example | *.env.sample | *.env.template) : ;;
+  *.env | *.env.* | */.env | */.env.* | *.lock | */.git/*)
     echo "Blocked: cannot write to .env files, lockfiles, or the .git directory. To change dependencies run 'npm install'." >&2
     exit 2
     ;;
