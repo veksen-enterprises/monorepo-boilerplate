@@ -13,7 +13,7 @@ always-on short form is `.claude/vision-digest.md`, injected each session.)
 
 ## Stack
 
-- TypeScript, React 19 (React Compiler), Vite (rolldown-vite), TanStack Router
+- TypeScript, React 19 (React Compiler), Vite 8 (Rolldown-native), TanStack Router
 - Monorepo: Turborepo + npm workspaces (Node 24.x)
 - UI: Base UI + `@repo/ui`, Tailwind CSS v4, CVA
 - Linter: OxLint | Formatter: OxFmt | Tests: Vitest + Testing Library
