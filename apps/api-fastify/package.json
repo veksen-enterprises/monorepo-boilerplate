@@ -1,0 +1,41 @@
+{
+  "name": "@repo/api-fastify",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "main": "dist/index.js",
+  "scripts": {
+    "dev": "tsx watch --env-file=.env src/index.ts",
+    "build": "tsc -p tsconfig.json",
+    "start": "node --env-file=.env dist/index.js",
+    "check-types": "tsc --noEmit",
+    "lint": "oxlint",
+    "lint:fix": "oxlint --fix",
+    "test": "vitest run",
+    "test:coverage": "vitest run --coverage",
+    "db:generate": "drizzle-kit generate",
+    "db:migrate": "tsx --env-file=.env src/db/migrate.ts"
+  },
+  "dependencies": {
+    "@bufbuild/protobuf": "^2.9.0",
+    "@clerk/fastify": "^2.6.21",
+    "@connectrpc/connect": "^2.1.0",
+    "@connectrpc/connect-fastify": "^2.1.0",
+    "@repo/proto": "*",
+    "drizzle-orm": "^0.45.2",
+    "fastify": "^5.8.5",
+    "postgres": "^3.4.9"
+  },
+  "devDependencies": {
+    "@electric-sql/pglite": "^0.5.4",
+    "@repo/typescript-config": "*",
+    "@repo/vitest-config": "*",
+    "@types/node": "^24.10.12",
+    "@vitest/coverage-v8": "^4.0.18",
+    "drizzle-kit": "^0.31.10",
+    "pino-pretty": "^13.1.1",
+    "tsx": "^4.23.0",
+    "typescript": "~5.9.3",
+    "vitest": "^4.0.18"
+  }
+}

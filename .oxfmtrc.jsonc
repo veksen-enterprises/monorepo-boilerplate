@@ -5,6 +5,8 @@
     "skills-lock.json",
     "**/migrations/**",
     "**/drizzle/**",
+    "**/gen/**",
+    "apps/api-go/**",
   ],
   "printWidth": 80,
   "arrowParens": "always",

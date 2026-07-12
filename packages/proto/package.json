@@ -1,0 +1,26 @@
+{
+  "name": "@repo/proto",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    "./*": "./gen/*"
+  },
+  "scripts": {
+    "generate": "buf generate",
+    "lint": "buf lint",
+    "check-types": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@bufbuild/protobuf": "^2.9.0",
+    "@connectrpc/connect": "^2.1.0",
+    "@connectrpc/connect-query": "^2.1.0"
+  },
+  "devDependencies": {
+    "@bufbuild/buf": "^1.56.0",
+    "@bufbuild/protoc-gen-es": "^2.9.0",
+    "@connectrpc/protoc-gen-connect-query": "^2.1.0",
+    "@repo/typescript-config": "*",
+    "typescript": "~5.9.3"
+  }
+}

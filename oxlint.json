@@ -7,7 +7,9 @@
     "**/routeTree.gen.ts",
     ".claude/skills/**",
     "**/migrations/**",
-    "**/drizzle/**"
+    "**/drizzle/**",
+    "**/gen/**",
+    "apps/api-go/**"
   ],
   "categories": {
     "correctness": "warn",

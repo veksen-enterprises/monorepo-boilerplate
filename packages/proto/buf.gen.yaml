@@ -1,0 +1,22 @@
+version: v2
+clean: true
+plugins:
+  # TypeScript: protobuf-es messages + connect-query TanStack Query hooks (shared
+  # by the frontend and the Fastify backend). js+dts so the package needs no build.
+  - local: protoc-gen-es
+    out: gen
+    opt:
+      - target=js+dts
+  - local: protoc-gen-connect-query
+    out: gen
+    opt:
+      - target=js+dts
+  # Go: connect-go handlers/clients, written into the Go app's module.
+  - local: protoc-gen-go
+    out: ../../apps/api-go/internal/gen
+    opt:
+      - paths=source_relative
+  - local: protoc-gen-connect-go
+    out: ../../apps/api-go/internal/gen
+    opt:
+      - paths=source_relative

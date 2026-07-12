@@ -1,0 +1,50 @@
+syntax = "proto3";
+
+package notes.v1;
+
+option go_package = "github.com/veksen-enterprises/monorepo-boilerplate/apps/api-go/internal/gen/notes/v1;notesv1";
+
+// A note owned by the Clerk user who created it.
+message Note {
+  string id = 1;
+  string author_id = 2;
+  string title = 3;
+  string body = 4;
+  string created_at = 5; // RFC 3339
+}
+
+message ListNotesRequest {}
+message ListNotesResponse {
+  repeated Note notes = 1;
+}
+
+message CreateNoteRequest {
+  string title = 1;
+  string body = 2;
+}
+message CreateNoteResponse {
+  Note note = 1;
+}
+
+message GetNoteRequest {
+  string id = 1;
+}
+message GetNoteResponse {
+  Note note = 1;
+}
+
+message DeleteNoteRequest {
+  string id = 1;
+}
+message DeleteNoteResponse {}
+
+// The sample service both backends implement identically.
+service NotesService {
+  // Public reads.
+  rpc ListNotes(ListNotesRequest) returns (ListNotesResponse);
+  rpc GetNote(GetNoteRequest) returns (GetNoteResponse);
+  // Create is public in the sample (attributes to the caller if authenticated).
+  rpc CreateNote(CreateNoteRequest) returns (CreateNoteResponse);
+  // Clerk-protected: only the authenticated owner may delete.
+  rpc DeleteNote(DeleteNoteRequest) returns (DeleteNoteResponse);
+}
