@@ -12,16 +12,16 @@ jobs:
     outputs:
       packages: ${{ steps.find-packages.outputs.packages }}
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
 
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v5
         with:
           node-version: 24
           cache: "npm"
 
       # Go toolchain for apps/api-go (turbo runs its build/check-types/test tasks).
       # GitHub-hosted runners provide a Docker daemon for its testcontainers tests.
-      - uses: actions/setup-go@v5
+      - uses: actions/setup-go@v6
         with:
           go-version: "1.25"
           cache-dependency-path: apps/api-go/go.sum
@@ -49,7 +49,7 @@ jobs:
 
       # Upload coverage for report job
       - name: Upload coverage for report
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v6
         with:
           name: coverage-current
           path: |
@@ -60,7 +60,7 @@ jobs:
       # Upload coverage summary for baseline comparison on main
       - name: Upload baseline coverage
         if: github.ref == 'refs/heads/main'
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v6
         with:
           name: coverage-main
           path: |
@@ -90,10 +90,10 @@ jobs:
       matrix:
         package: ${{ fromJson(needs.ci.outputs.packages) }}
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
 
       - name: Download coverage
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v7
         with:
           name: coverage-current
 
