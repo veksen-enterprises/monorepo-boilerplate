@@ -19,6 +19,13 @@ jobs:
           node-version: 24
           cache: "npm"
 
+      # Go toolchain for apps/api-go (turbo runs its build/check-types/test tasks).
+      # GitHub-hosted runners provide a Docker daemon for its testcontainers tests.
+      - uses: actions/setup-go@v5
+        with:
+          go-version: "1.25"
+          cache-dependency-path: apps/api-go/go.sum
+
       - run: npm ci --force
 
       - run: npm run lint

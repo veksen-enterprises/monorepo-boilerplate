@@ -1,0 +1,12 @@
+{
+  "name": "@repo/api-go",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "build": "go build -o ./bin/api ./cmd/api",
+    "start": "./bin/api",
+    "check-types": "go vet ./...",
+    "test": "go test ./...",
+    "test:coverage": "go test -coverprofile=coverage.out ./..."
+  }
+}
