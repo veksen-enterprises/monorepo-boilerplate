@@ -35,7 +35,7 @@
     "@repo/typescript-config": "*",
     "@repo/vitest-config": "*",
     "@rolldown/plugin-babel": "^0.2.3",
-    "@tailwindcss/postcss": "^4.1.18",
+    "@tailwindcss/postcss": "^4.3.2",
     "@tanstack/eslint-plugin-router": "^1.155.0",
     "@tanstack/router-plugin": "^1.158.4",
     "@testing-library/dom": "^10.4.1",
