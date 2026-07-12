@@ -2,7 +2,7 @@
   "$schema": "./node_modules/oxlint/configuration_schema.json",
   "plugins": ["typescript", "react", "import"],
   "jsPlugins": [{ "name": "turbo", "specifier": "eslint-plugin-turbo" }],
-  "ignorePatterns": ["**/dist/**", "**/routeTree.gen.ts"],
+  "ignorePatterns": ["**/dist/**", "**/routeTree.gen.ts", ".claude/skills/**"],
   "categories": {
     "correctness": "warn",
     "suspicious": "warn"

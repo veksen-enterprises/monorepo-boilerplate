@@ -84,3 +84,8 @@ See `.claude/rules/git-workflow.md` for full conventions.
 ## Mistakes
 
 - Record mistakes in `.claude/rules/mistakes.md` using `/learn` so they don't repeat.
+
+## Agent Skills
+
+- `.claude/skills/` bundles third-party skills vendored via [`npx skills`](https://github.com/vercel-labs/skills) from `mattpocock/skills` (engineering/workflow) and `emilkowalski/skills` (design/motion). Sources and hashes are tracked in `skills-lock.json`.
+- Update or prune with `npx skills check` / `npx skills add`. The vendored tree is excluded from oxfmt/oxlint — don't hand-edit skills, re-sync from source.
