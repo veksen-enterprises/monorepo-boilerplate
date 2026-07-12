@@ -17,7 +17,7 @@
     "db:migrate": "tsx --env-file=.env src/db/migrate.ts"
   },
   "dependencies": {
-    "@bufbuild/protobuf": "^2.9.0",
+    "@bufbuild/protobuf": "^2.12.1",
     "@clerk/fastify": "^2.6.21",
     "@connectrpc/connect": "^2.1.0",
     "@connectrpc/connect-fastify": "^2.1.0",
