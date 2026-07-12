@@ -1,7 +1,9 @@
-import { defineConfig } from "vitest/config";
+import { defaultExclude, defineConfig } from "vitest/config";
 
 export const baseConfig = defineConfig({
   test: {
+    // Never discover compiled tests in build output (dist), or every test runs twice.
+    exclude: [...defaultExclude, "**/dist/**"],
     coverage: {
       provider: "v8",
       reporter: ["text", "lcov", "json-summary", "json"],
