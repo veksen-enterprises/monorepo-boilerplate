@@ -47,6 +47,10 @@ Each rule is tagged with how it's enforced:
   over hand-rolling focus/aria — it gives you WAI-ARIA patterns for free.
 - **[review]** `cursor-pointer` only on genuinely clickable elements (match the Button pattern),
   never on text or disabled controls.
+- **[review]** Every clickable element has a visible hover state — a deliberate change on
+  `:hover` (background, color, border, or elevation via the `transition-colors` idiom), not just
+  the cursor. A control that only responds on click reads as inert; hover is the affordance that
+  says "this does something". Disabled controls are the exception — they show no hover.
 
 ## State coverage
 
@@ -87,6 +91,27 @@ Each rule is tagged with how it's enforced:
   `cn()`. Don't concatenate class strings by hand or fork a component for a one-off.
 - **[review]** No inline magic spacing/sizing that duplicates an existing variant — extend the
   variant instead.
+
+## Clarity — don't make me think
+
+Krug's first law of usability: every screen should be **self-evident**. Failing that,
+**self-explanatory**. A brief instruction is the last resort, never the plan.
+
+- **[review]** A control explains itself — label, icon, and position make its purpose
+  obvious. If it needs a tooltip or helper line just to be understood, the affordance
+  failed first; fix the control before adding the explanation.
+- **[review]** Convention over invention. Search boxes, filter chips, sortable headers
+  should look and behave like the ones users already know — reinventing a familiar control
+  forces them to stop and think. "Conventions are your friends."
+- **[review]** Visual weight tracks meaning (the billboard rule): make the clickable
+  obviously clickable and the important obviously important. The primary action outranks
+  the secondary; the headline outranks the metadata.
+- **[review]** Omit needless words. Krug's third law: "Get rid of half the words on each
+  page, then get rid of half of what's left." No happy talk, no "Welcome!" intros, no
+  instructions for self-evident UI — labels and empty/error copy earn every word.
+- **[review]** Design for scanning, not reading — people scan lists and result grids.
+  Lead each row with its distinguishing fact, group related fields, and keep a stable
+  visual order so the eye never re-learns the layout.
 
 ## Voice (not generic)
 

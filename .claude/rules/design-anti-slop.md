@@ -135,7 +135,10 @@ The correctness gate is `design.md` (tokens, contrast, state coverage, focus, CV
 ### Sources
 
 - [AI Slop in Design — Managed Code](https://www.managed-code.com/blog-post/ai-slop-in-design)
+- [Avoid AI Slop with Claude Design (design-system approach) — MindStudio](https://www.mindstudio.ai/blog/claude-design-avoid-ai-slop-design-system)
 - [Why Your AI Keeps Building the Same Purple Gradient Website — prg.sh](https://prg.sh/ramblings/Why-Your-AI-Keeps-Building-the-Same-Purple-Gradient-Website)
 - [Where does that purple gradient come from? — Jack Pearce](https://www.jackpearce.co.uk/notes/purple-gradient-ai-aesthetics/)
 - [15 AI-Generated UI Mistakes and How to Fix Them — GenDesigns](https://gendesigns.ai/blog/ai-generated-ui-mistakes-how-to-fix)
+- [AI-Generated UI Anti-Patterns — BSWEN](https://docs.bswen.com/blog/2026-03-20-ai-generated-ui-anti-patterns/)
+- [Craft — State of AI in Design Report 2026](https://stateofaidesign.com/chapters/craft)
 - [State of the Designer 2026 — Figma](https://www.figma.com/blog/state-of-the-designer-2026/)
