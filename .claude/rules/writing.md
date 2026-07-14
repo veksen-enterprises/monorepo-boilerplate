@@ -5,8 +5,9 @@ globs: "*"
 # Not Shipping Writing AI Slop — A Guide for Docs, PRs, and Comments
 
 Reference brief for any agent writing prose — documentation, PR descriptions, issue bodies,
-commit messages, code comments. The goal: text that reads like a person who knows the subject
-wrote it, not text that was generated. Read this before writing prose.
+commit messages, code comments, and replies in chat. An answer to the user is prose and
+follows the same rules. The goal: text that reads like a person who knows the subject wrote
+it, not text that was generated. Read this before writing prose.
 
 > **Relationship to `CLAUDE.md`.** CLAUDE.md's comment policy ("Explain WHY, not WHAT. No
 > filler. No AI-slop.") is the enforced rule for code comments and wins where it applies. This
@@ -43,7 +44,13 @@ actively cutting what the model wants to add.
   "seamless", "unlock", "supercharge", and upsell transitions ("move to X to get…").
 - **Invented jargon** — coining a Capitalized noun for an internal concept and leaning on it
   ("the Sync", "a Handoff") when the reader already has plain words ("save to the server",
-  "pass the work on").
+  "pass the work on"). Same for quoted mini-terms ("the 'wash' case", "volunteered honesty").
+- **Moralizing frames** — wrapping a fact in its own significance ("the surfaces where trust
+  is actually won", "sitting unused as a trust signal") instead of stating fact, location,
+  fix. Includes the closing moral: a final paragraph restating the findings as a theme ("The
+  through-line: …").
+- **Slogan headers** — headings that argue instead of label ("Say when the reader doesn't
+  need you — the biggest gap"). A heading names its contents.
 - **Unverified claims stated as fact** — asserting a mechanism or benefit you never checked
   ("retries are handled automatically"). If you didn't verify it, don't write it.
 - **Filler and redundancy** — sentences that restate the heading, echo the previous sentence,
@@ -53,7 +60,8 @@ actively cutting what the model wants to add.
 - **Reflexive hedging** — "you may be able to", "this is a signal that", "can potentially",
   where the fact is plain.
 - **Over-polished rhythm** — every sentence the same length, parallel triples, em-dashes as a
-  tic.
+  tic, aphoristic punchlines ("you just never sell it"). If a sentence sounds quotable,
+  rewrite it as information.
 
 ## 4. The discipline that prevents it
 
@@ -112,6 +120,7 @@ Constraints get you out of the slop basin; judgment is what makes it good:
 - [ ] Every factual claim verified — ran it, read the code, or a primary source.
 - [ ] Every sentence adds information; deleting it would lose something.
 - [ ] No clichés or buzzwords, no reflexive hedging.
+- [ ] No moralizing frames or closing moral; headings label, they don't argue.
 - [ ] Register matches an existing plain-voiced page.
 - [ ] Read it aloud — it sounds like a person, not a brochure.
 
