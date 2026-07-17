@@ -7,9 +7,10 @@ Read `.claude/rules/design.md` first, then run `git diff` and check each changed
 against it. Flag the rule tag (`[lint]`/`[axe]`/`[review]`) on each finding.
 
 For the craft dimensions, pull in the vendored design skills: **`better-colors`** (OKLCH color,
-palette generation, contrast, Tailwind v4 theming), **`better-typography`** (type scale, heading
-hierarchy, spacing, wrapping, tabular numbers), and **`better-ui`** (polish — hover states,
-enter/exit animation, shadows, optical alignment). Verify contrast with **`better-colors`**.
+palette generation, contrast, Tailwind v4 theming) and **`better-typography`** (type scale, heading
+hierarchy, spacing, wrapping, tabular numbers); for interaction/polish and motion use Emil's
+**`emil-design-eng`**, **`apple-design`**, and **`review-animations`**. Verify contrast with
+**`better-colors`**.
 
 1. **Color & tokens** — raw hex/`rgb()`/`hsl()` instead of `@theme` tokens? Purple/indigo accent
    by reflex instead of a named brand token? Neutrals consolidated or scattered raw grays? Plausible
@@ -20,13 +21,13 @@ enter/exit animation, shadows, optical alignment). Verify contrast with **`bette
    change? Consult `better-typography`.
 3. **Interactions** — `focus-visible:` (not bare `focus:`)? Focus ring intact? Paste not disabled?
    Adequate hit target? `cursor-pointer` only on clickables? A visible hover state on every clickable?
-   Consult `better-ui` for hover/interaction polish.
+   Consult `emil-design-eng` for interaction and hover polish.
 4. **Keyboard & a11y** — fully keyboard-operable? Using a Base UI primitive instead of a hand-rolled
    focus/aria implementation? Flag obvious gaps.
 5. **State coverage** — does every async view handle loading, empty/zero, error, and success? Are
    empty/error states useful and actionable?
 6. **Motion** — `prefers-reduced-motion` respected? CSS over main-thread JS? Animating
-   `transform`/`opacity`, short and interruptible? Consult `better-ui` for enter/exit + stagger craft.
+   `transform`/`opacity`, short and interruptible? Consult `apple-design` / `review-animations` for motion craft.
 7. **Layout** — responsive, CSS-driven sizing (no fixed heights that clip)? No overflow / long
    strings handled?
 8. **Forms** — labels via the `Field` component (not placeholder-as-label)? Specific validation

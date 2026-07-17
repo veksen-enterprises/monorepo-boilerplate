@@ -52,8 +52,8 @@ Each rule is tagged with how it's enforced:
 - **[review]** Every clickable element has a visible hover state — a deliberate change on
   `:hover` (background, color, border, or elevation via the `transition-colors` idiom), not just
   the cursor. A control that only responds on click reads as inert; hover is the affordance that
-  says "this does something". Disabled controls are the exception — they show no hover. Use the `better-ui`
-  skill for hover/interaction polish, shadows, borders, and micro-interactions.
+  says "this does something". Disabled controls are the exception — they show no hover. Use the
+  `emil-design-eng` skill for hover/interaction polish and micro-interaction detail.
 
 ## State coverage
 
