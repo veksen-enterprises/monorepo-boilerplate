@@ -9,11 +9,11 @@ against it. Flag the rule tag (`[lint]`/`[axe]`/`[review]`) on each finding.
 For the craft dimensions, pull in the vendored design skills: **`better-colors`** (OKLCH color,
 palette generation, contrast, Tailwind v4 theming), **`better-typography`** (type scale, heading
 hierarchy, spacing, wrapping, tabular numbers), and **`better-ui`** (polish — hover states,
-enter/exit animation, shadows, optical alignment). Verify contrast with **`apca-contrast`**.
+enter/exit animation, shadows, optical alignment). Verify contrast with **`better-colors`**.
 
 1. **Color & tokens** — raw hex/`rgb()`/`hsl()` instead of `@theme` tokens? Purple/indigo accent
    by reflex instead of a named brand token? Neutrals consolidated or scattered raw grays? Plausible
-   contrast on the actual background (verify with `apca-contrast`)? For palette/token work, consult
+   contrast on the actual background (verify with `better-colors`)? For palette/token work, consult
    `better-colors` (OKLCH, gamut, dark-mode ramps).
 2. **Typography** — deliberate type scale and heading hierarchy, sensible line-height/measure,
    `tabular-nums` on any value the user compares or that updates in place, no reflow on a number

@@ -25,7 +25,7 @@ Each rule is tagged with how it's enforced:
   how a palette drifts into slop — define a neutral scale in `@theme` and use it consistently. Use
   the `better-colors` skill for OKLCH scales, palette generation, gamut, and Tailwind v4 theming.
 - **[axe]** Text meets contrast targets (WCAG AA: 4.5:1 body, 3:1 large/UI). Verify on the actual
-  composited background — use the `apca-contrast` skill rather than eyeballing.
+  composited background — use the `better-colors` skill to check contrast rather than eyeballing.
 
 ## Typography & numbers
 
