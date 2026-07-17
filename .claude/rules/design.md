@@ -22,14 +22,16 @@ Each rule is tagged with how it's enforced:
   The starter ships purple-by-default in a few components; those are grandfathered in
   `scripts/design-lint-baseline.json` — replace them when you define your palette, don't add more.
 - **[review]** Consolidate neutrals. Scattering raw `neutral-*/gray-*/zinc-*` across components is
-  how a palette drifts into slop — define a neutral scale in `@theme` and use it consistently.
+  how a palette drifts into slop — define a neutral scale in `@theme` and use it consistently. Use
+  the `better-colors` skill for OKLCH scales, palette generation, gamut, and Tailwind v4 theming.
 - **[axe]** Text meets contrast targets (WCAG AA: 4.5:1 body, 3:1 large/UI). Verify on the actual
   composited background — use the `apca-contrast` skill rather than eyeballing.
 
 ## Typography & numbers
 
 - **[review]** The font is a deliberate choice (this starter ships Geist Sans/Mono via `@theme
---font-sans/--font-mono`), never Inter-or-system-by-default. Keep type on the token.
+--font-sans/--font-mono`), never Inter-or-system-by-default. Keep type on the token. Use the
+  `better-typography` skill for type scale, heading hierarchy, wrapping, and OpenType features.
 - **[review]** Use `tabular-nums` for any numbers the user compares or that update in place —
   prices, counts, stats, timers. Misaligned digits in a list is a bug, not a nitpick.
 - **[review]** Headings & buttons: Title Case. Body copy & helper text: sentence case.
@@ -50,7 +52,8 @@ Each rule is tagged with how it's enforced:
 - **[review]** Every clickable element has a visible hover state — a deliberate change on
   `:hover` (background, color, border, or elevation via the `transition-colors` idiom), not just
   the cursor. A control that only responds on click reads as inert; hover is the affordance that
-  says "this does something". Disabled controls are the exception — they show no hover.
+  says "this does something". Disabled controls are the exception — they show no hover. Use the `better-ui`
+  skill for hover/interaction polish, shadows, borders, and micro-interactions.
 
 ## State coverage
 
