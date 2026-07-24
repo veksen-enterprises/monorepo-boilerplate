@@ -37,5 +37,5 @@ npm run generate -w @repo/proto
 - `src/rpc/notes.routes.test.ts` — RPC tests via an in-memory Connect client
 - `src/services/notes.service.test.ts` — data-layer tests against a real (pglite) DB
 
-Tests follow `.claude/rules/testing-api.md`: the RPC layer is driven through the real
+Tests follow `.claude/skills/testing/testing-api.md`: the RPC layer is driven through the real
 service impl via `createRouterTransport`; the data layer runs against a real database.

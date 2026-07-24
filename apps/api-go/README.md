@@ -35,5 +35,5 @@ go run ./cmd/api                  # migrations apply on start
 - `internal/rpc/notes_test.go` — RPC tests via a real connect client over `httptest`
 - `internal/store/store_test.go` — data-layer tests against real Postgres (testcontainers)
 
-Tests follow `.claude/rules/testing-api.md`: the RPC layer runs through the real HTTP
+Tests follow `.claude/skills/testing/testing-api.md`: the RPC layer runs through the real HTTP
 pipeline with a typed client; the store runs against a real database.

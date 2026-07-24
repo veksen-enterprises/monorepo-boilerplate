@@ -9,7 +9,7 @@ export interface CreateNoteInput {
 }
 
 // Business logic + data access. The database is a managed dependency — tests run it
-// for real (pglite), so nothing here is mocked. See .claude/rules/testing-api.md.
+// for real (pglite), so nothing here is mocked. See .claude/skills/testing/testing-api.md.
 export class NotesService {
   constructor(private readonly db: Database) {}
 

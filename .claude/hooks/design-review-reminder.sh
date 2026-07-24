@@ -17,8 +17,8 @@ esac
 
 read -r -d '' msg <<'EOF'
 This edit touched the UI layer. Before declaring the task done: honor
-.claude/rules/design.md (tokens over raw hex/grays, focus-visible, tabular-nums,
-all four async states, CVA + @repo/ui) and .claude/rules/design-anti-slop.md
+.claude/skills/design/design.md (tokens over raw hex/grays, focus-visible, tabular-nums,
+all four async states, CVA + @repo/ui) and .claude/skills/design/design-anti-slop.md
 (no reflex purple accent, real content, authored not generic). Run
 `npm run lint:design` and run `/design-review` on the diff — it is a hard gate
 for UI changes, not optional.
