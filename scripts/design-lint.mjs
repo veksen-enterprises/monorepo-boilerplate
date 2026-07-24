@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-// Design-rule lint for the UI layer (.claude/rules/design.md, [lint]-tagged rules).
+// Design-rule lint for the UI layer (.claude/skills/design/design.md, [lint]-tagged rules).
 // oxlint can't see Tailwind class-string semantics, so this is a focused regex
 // pass over component source. It is a ratchet, not a one-shot cleanup: existing
 // violations are grandfathered in design-lint-baseline.json so CI stays green,
@@ -129,7 +129,7 @@ if (fresh.length > 0) {
     }
   }
   console.error(
-    `\nFix these (see .claude/rules/design.md). If a violation is genuinely` +
+    `\nFix these (see .claude/skills/design/design.md). If a violation is genuinely` +
       ` unavoidable, add the file to scripts/design-lint-baseline.json with a reason in the PR.`,
   );
 }

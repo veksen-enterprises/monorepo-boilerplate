@@ -60,18 +60,18 @@ The starter ships **purple-by-default** components (the canonical AI-slop tell),
   (`packages/ui/src/{button,dialog,input}`), then **remove those files from
   `scripts/design-lint-baseline.json`** so the ratchet can't regress. `npm run lint` fails if a
   baselined file is now clean but still listed — that's the burn-down working.
-- Follow `.claude/rules/design.md` and `design-anti-slop.md`; run `/design-review` on UI diffs.
+- Follow the `design` skill (`.claude/skills/design/design.md` and `design-anti-slop.md`); run `/design-review` on UI diffs.
 
 ## 5. Database — set up or delete
 
 The starter has **no database wired in**, only the convention and a local Postgres for when you add
-one (`.claude/rules/database.md` + `migrations.md`).
+one (the `database` skill at `.claude/skills/database/` + `.claude/rules/migrations.md`).
 
 - **Set up:** pick your stack (Postgres + a typed ORM is the house default). `docker compose up -d`
   starts local Postgres; `cp .env.example .env` and set `DATABASE_URL`. Add your ORM, put the
   schema in one place, and point `.claude/hooks/block-manual-migrations.sh` at your tool's
   migrations directory. Follow `migrations.md` for the write-once workflow.
-- **Delete (no DB):** remove `docker-compose.yml`, `.env.example`, `.claude/rules/database.md`,
+- **Delete (no DB):** remove `docker-compose.yml`, `.env.example`, `.claude/skills/database/`,
   `.claude/rules/migrations.md`, and `.claude/hooks/block-manual-migrations.sh` (and its entry in
   `.claude/settings.json` `PreToolUse`).
 

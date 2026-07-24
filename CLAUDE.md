@@ -45,8 +45,9 @@ Do NOT run `npm run dev` or `npm run build` unless explicitly asked (`dev` is lo
 
 ## Local Database
 
-No database is wired in by default. When you add one, follow `.claude/rules/database.md` and
-`migrations.md`: `docker compose up -d` starts a local Postgres (the house default — swap if
+No database is wired in by default. When you add one, follow the `database` skill
+(`.claude/skills/database/`) and `.claude/rules/migrations.md`: `docker compose up -d`
+starts a local Postgres (the house default — swap if
 needed), then `cp .env.example .env` and set `DATABASE_URL`. Migrations are generated and
 write-once; `.claude/hooks/block-manual-migrations.sh` blocks hand-editing the migrations
 directory. Delete these pieces if the project has no DB.
@@ -64,7 +65,7 @@ directory. Delete these pieces if the project has no DB.
 1. **Research** — Read docs, source, and existing patterns first. If unfamiliar with a library/API, research it (WebFetch, docs, subagents). DO NOT guess. See `.claude/rules/research.md`.
 2. **Plan** — State what you'll do and why BEFORE writing code. Get confirmation on non-trivial changes. Use `/plan`.
 3. **Implement** — Write the code. Follow existing patterns (`.claude/rules/code-quality.md`).
-4. **Test** — Run the full test suite. Tests must pass. Write new tests for new code (`.claude/rules/testing.md`).
+4. **Test** — Run the full test suite. Tests must pass. Write new tests for new code (`testing` skill).
 5. **Lint & Format** — `npm run lint:fix && npm run format`. Fix all issues.
 6. **Check types & Build** — `npm run check-types` then `npm run build`. Fix any errors.
 7. **Self-review** — Review your own diff as a senior engineer. Use `/review`.

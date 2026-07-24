@@ -6,7 +6,7 @@ globs: "**/db/**,**/schema*.ts,**/drizzle.config.*,**/prisma/**,docker-compose.y
 
 No database is wired into this starter — this is the convention for **when you add one**.
 Postgres + a typed ORM/query builder is the house default (Drizzle, Prisma, Kysely, Knex;
-your call). Migration discipline lives in `migrations.md`; this file is setup and queries.
+your call). Migration discipline lives in `.claude/rules/migrations.md`; this file is setup and queries.
 
 ## Local database
 

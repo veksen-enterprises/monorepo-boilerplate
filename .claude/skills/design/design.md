@@ -119,7 +119,7 @@ Krug's first law of usability: every screen should be **self-evident**. Failing 
 ## Voice (not generic)
 
 The rules above keep UI correct and on-system. These keep it from looking AI-generated — the
-long-form reasoning lives in `.claude/rules/design-anti-slop.md`.
+long-form reasoning lives in `.claude/skills/design/design-anti-slop.md`.
 
 - **[review]** No default-AI accent: no purple/indigo or blue→purple gradient chosen by reflex.
   The accent is an `@theme` token picked for a reason.

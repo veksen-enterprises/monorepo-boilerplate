@@ -1,6 +1,6 @@
 Write comprehensive tests for: $ARGUMENTS
 
-Follow the project testing rules (`.claude/rules/testing.md`, `testing-philosophy.md`, `testing-react.md`, `testing-utilities.md`):
+Follow the project testing rules (the `testing` skill: `.claude/skills/testing/testing.md`, `testing-philosophy.md`, `testing-react.md`, `testing-utilities.md`):
 
 - Use Vitest + Testing Library. Co-locate the test with its source (`x.tsx` → `x.test.tsx`).
 - Mock discipline: only mock network, time, and browser APIs unavailable under jsdom. Never mock the thing under test.

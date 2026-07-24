@@ -3,7 +3,7 @@ Perform a design review of the current uncommitted UI changes using a subagent (
 Scope: only files touching the UI layer — components, routes/pages, styles, `packages/ui`.
 If `git diff` has no UI changes, say so and stop.
 
-Read `.claude/rules/design.md` first, then run `git diff` and check each changed UI surface
+Read `.claude/skills/design/design.md` first, then run `git diff` and check each changed UI surface
 against it. Flag the rule tag (`[lint]`/`[axe]`/`[review]`) on each finding.
 
 For the craft dimensions, pull in the vendored design skills: **`better-colors`** (OKLCH color,
