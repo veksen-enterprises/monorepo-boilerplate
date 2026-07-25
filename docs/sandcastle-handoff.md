@@ -221,24 +221,25 @@ tail -f "$(ls -t .sandcastle/logs/*.log | head -1)"
 
 ## Gotchas
 
-| Symptom                                                 | Cause                                                                            | Fix                                                          |
-| ------------------------------------------------------- | -------------------------------------------------------------------------------- | ------------------------------------------------------------ |
-| `cannot lock ref 'refs/heads/sandcastle/worker/...'`    | A branch literally named `sandcastle` collides with the worker ref namespace     | Never name a branch `sandcastle`                             |
-| Agent works from stale code                             | `baseBranch` is only read when the branch is new; sandcastle doesn't fetch       | `git fetch` on the host before `run()`; rebase in the prompt |
-| `git push` fails / asks for a key                       | `origin` is SSH; the sandbox has no key and sandcastle sets no credential helper | `GIT_CONFIG_*` env rewrite + `gh auth git-credential`        |
-| Your host repo's remote changed                         | Something ran `git remote set-url` in the sandbox; `.git` is shared              | Use env-scoped git config, never mutate config in-sandbox    |
-| Loop grabs a spec or a blocked ticket                   | Template issue query is unfiltered; no blocked-by check                          | Filter to the agent label; honor `## Blocked by`             |
-| Type-check "passes" but never ran                       | Prompt calls a script name the repo doesn't define                               | Match the prompt to real `package.json` scripts              |
-| `gh pr merge --auto` errors                             | No required checks on the base branch, so the PR is already mergeable            | Poll + merge in the prompt, or add a ruleset                 |
-| `gh pr merge` rejected                                  | That merge method is disabled on the repo                                        | Check `allow_*_merge` and use one that's enabled             |
-| Toolchain "not found" in sandbox                        | Stock image is Node-only                                                         | Add it to the Dockerfile, rebuild                            |
-| A stray `sandcastle:<something-odd>` image per checkout | Default image tag is the checkout dir basename, not the repo                     | Set `imageName` + `--image-name` from the package name       |
-| Image "built" fine but is broken                        | `sandcastle docker build-image` exits 0 even when the docker build fails         | Verify with `docker run … -c '<tool> --version'`             |
-| `apt-get` fails with a bare `exit code: 100`            | The vendor's apt signing key is ASCII-armored                                    | `gpg --dearmor` it, or drop the tool                         |
-| DB tests fail in sandbox                                | No Docker daemon → no testcontainers                                             | Mount the socket, or sidecar + `DATABASE_URL`                |
-| Tests hang connecting to `localhost`                    | Sibling containers aren't on the sandbox's loopback                              | `TESTCONTAINERS_HOST_OVERRIDE=host.docker.internal`          |
-| CI-wait command times out                               | One long blocking `--watch` call                                                 | Bounded poll loop with sleeps                                |
-| Merge races / flaky DB                                  | Two concurrent launches                                                          | One at a time                                                |
+| Symptom                                                 | Cause                                                                                | Fix                                                          |
+| ------------------------------------------------------- | ------------------------------------------------------------------------------------ | ------------------------------------------------------------ |
+| `cannot lock ref 'refs/heads/sandcastle/worker/...'`    | A branch literally named `sandcastle` collides with the worker ref namespace         | Never name a branch `sandcastle`                             |
+| Agent works from stale code                             | `baseBranch` is only read when the branch is new; sandcastle doesn't fetch           | `git fetch` on the host before `run()`; rebase in the prompt |
+| `git push` fails / asks for a key                       | `origin` is SSH; the sandbox has no key and sandcastle sets no credential helper     | `GIT_CONFIG_*` env rewrite + `gh auth git-credential`        |
+| Your host repo's remote changed                         | Something ran `git remote set-url` in the sandbox; `.git` is shared                  | Use env-scoped git config, never mutate config in-sandbox    |
+| Loop grabs a spec or a blocked ticket                   | Template issue query is unfiltered; no blocked-by check                              | Filter to the agent label; honor `## Blocked by`             |
+| Type-check "passes" but never ran                       | Prompt calls a script name the repo doesn't define                                   | Match the prompt to real `package.json` scripts              |
+| `gh pr merge --auto` errors                             | No required checks on the base branch, so the PR is already mergeable                | Poll + merge in the prompt, or add a ruleset                 |
+| `gh pr merge` rejected                                  | That merge method is disabled on the repo                                            | Check `allow_*_merge` and use one that's enabled             |
+| Toolchain "not found" in sandbox                        | Stock image is Node-only                                                             | Add it to the Dockerfile, rebuild                            |
+| A stray `sandcastle:<something-odd>` image per checkout | Default image tag is the checkout dir basename, not the repo                         | Set `imageName` + `--image-name` from the package name       |
+| Image "built" fine but is broken                        | `sandcastle docker build-image` exits 0 even when the docker build fails             | Verify with `docker run … -c '<tool> --version'`             |
+| `apt-get` fails with a bare `exit code: 100`            | The vendor's apt signing key is ASCII-armored                                        | `gpg --dearmor` it, or drop the tool                         |
+| DB tests fail in sandbox                                | No Docker daemon → no testcontainers                                                 | Mount the socket, or sidecar + `DATABASE_URL`                |
+| Tests hang connecting to `localhost`                    | Sibling containers aren't on the sandbox's loopback                                  | `TESTCONTAINERS_HOST_OVERRIDE=host.docker.internal`          |
+| CI-wait command times out                               | One long blocking `--watch` call                                                     | Bounded poll loop with sleeps                                |
+| Worker merges before CI finishes                        | Polling `gh pr checks --json state`; a running check is `IN_PROGRESS`, not `PENDING` | Poll the `bucket` field and wait while any is `pending`      |
+| Merge races / flaky DB                                  | Two concurrent launches                                                              | One at a time                                                |
 
 ---
 

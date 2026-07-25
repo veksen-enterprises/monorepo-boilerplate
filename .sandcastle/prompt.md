@@ -80,13 +80,23 @@ You are RALPH, working through exactly **one** issue this run.
    Closes #<issue>"
    ```
 3. **Wait for CI, in a bounded loop.** Do not use a single long-blocking
-   `--watch` call; it will outlive the command timeout. Poll instead:
+   `--watch` call; it will outlive the command timeout. Poll instead, and read
+   the **`bucket`** field, not `state`:
+
    ```
-   gh pr checks --json name,state,link
+   gh pr checks --json name,bucket,link
    ```
+
+   `bucket` normalizes to `pass` / `fail` / `pending` / `skipping` / `cancel`.
+   `state` does not: a running check reports `IN_PROGRESS`, so a loop that waits
+   only while `state` contains `PENDING` exits on the first poll and you will try
+   to merge a PR whose CI has not finished. Keep waiting while any bucket is
+   `pending`.
+
    Sleep ~60s between polls and give up after ~30 attempts. CI on this repo runs
    lint, format:check, check-types, build, test:coverage, the Go suite, and a
    coverage matrix — several minutes is normal.
+
 4. **If CI fails:** read the failing job's log (`gh run view <id> --log-failed`),
    fix the cause, commit, push, and resume polling. If you cannot get it green
    after two attempts, leave a comment on the PR explaining what is failing and
