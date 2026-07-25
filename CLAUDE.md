@@ -103,3 +103,15 @@ See `.claude/rules/git-workflow.md` for full conventions.
 - `.claude/skills/` bundles third-party skills vendored via [`npx skills`](https://github.com/vercel-labs/skills) from `mattpocock/skills` (engineering/workflow), `emilkowalski/skills` (design/motion), and `jakubkrehel/skills` (`better-colors`, `better-typography` — wired into `/design-review` alongside Emil's design skills). Sources and hashes are tracked in `skills-lock.json`.
 - Update or prune with `npx skills check` / `npx skills add`. The vendored tree is excluded from oxfmt/oxlint — don't hand-edit skills, re-sync from source.
 - `react-doctor` is repo-owned (not tracked by `skills-lock.json`): it wraps `npx react-doctor` to scan React changes for lint/a11y/perf/architecture regressions. `/finish` runs it on React diffs.
+
+### Issue tracker
+
+Issues and PRDs live as GitHub issues in `veksen-enterprises/monorepo-boilerplate`, managed with the `gh` CLI. See `docs/agents/issue-tracker.md`.
+
+### Triage labels
+
+The five canonical triage roles map 1:1 to identically-named labels. See `docs/agents/triage-labels.md`.
+
+### Domain docs
+
+Single-context — root `CONTEXT.md` plus `docs/adr/`. See `docs/agents/domain.md`.
