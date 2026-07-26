@@ -71,7 +71,7 @@ jobs:
       # Download baseline for PR
       - name: Download baseline coverage
         if: github.event_name == 'pull_request'
-        uses: dawidd6/action-download-artifact@v6
+        uses: dawidd6/action-download-artifact@v21
         with:
           name: coverage-main
           path: coverage-baseline
@@ -98,7 +98,7 @@ jobs:
           name: coverage-current
 
       - name: Download baseline
-        uses: dawidd6/action-download-artifact@v6
+        uses: dawidd6/action-download-artifact@v21
         if: github.event_name == 'pull_request'
         with:
           name: coverage-main
