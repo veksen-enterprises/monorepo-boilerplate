@@ -114,4 +114,4 @@ The five canonical triage roles map 1:1 to identically-named labels. See `docs/a
 
 ### Domain docs
 
-Single-context — root `CONTEXT.md` plus `docs/adr/`. See `docs/agents/domain.md`.
+Single-context — root `GLOSSARY.md` plus `docs/adr/`. See `docs/agents/domain.md`.

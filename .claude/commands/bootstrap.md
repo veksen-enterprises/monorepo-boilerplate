@@ -14,7 +14,7 @@ Project description: $ARGUMENTS
 
 Ask the user to confirm — one topic at a time, don't dump the whole list:
 
-- Project purpose and the domain it serves (feed this into `VISION.md` / `CONTEXT.md`)
+- Project purpose and the domain it serves (feed this into `VISION.md` / `GLOSSARY.md`)
 - Language(s), frameworks, key libraries beyond the starter's stack
 - Test framework, linter, formatter, CI/CD, deployment target
 - Monorepo vs single repo, auth needs, integrations, and explicit out-of-scope items
@@ -31,7 +31,7 @@ Confirm the full picture before moving on.
 ### Step 3: Author the vision and domain
 
 - Fill `VISION.md` and its `.claude/vision-digest.md` digest (north star, principle, values).
-- Fill `CONTEXT.md` with the domain's ubiquitous language and invariants.
+- Fill `GLOSSARY.md` with the domain's ubiquitous language and invariants.
 - These anchor every issue below — do them before decomposing the work.
 
 ### Step 4: Design the Issue Plan

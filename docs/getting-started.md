@@ -5,7 +5,7 @@ Work top to bottom. Each step says **where** to change things, **how**, and when
 the piece instead of filling it. After each step, the repo should still pass
 `npm run lint && npm run format:check && npm run check-types && npm run test && npm run build`.
 
-The starter ships intentional blanks — templates (`VISION.md`, `CONTEXT.md`), a design-lint
+The starter ships intentional blanks — templates (`VISION.md`, `GLOSSARY.md`), a design-lint
 burn-down baseline, and an example DB setup. "Backfilling" means turning each blank into a real
 decision or deleting it. A shipped template is worse than none.
 
@@ -43,11 +43,11 @@ npm run lint && npm run format:check && npm run check-types && npm run test && n
 
 ## 3. Domain / context — fill or delete
 
-- **Fill:** author `CONTEXT.md` (ubiquitous language, key concepts, invariants). The
+- **Fill:** author `GLOSSARY.md` (ubiquitous language, key concepts, invariants). The
   `domain-modeling` and `diagnosing-bugs` skills read it.
 - Record architectural decisions in `docs/adr/` as you make them (`docs/adr/README.md` has the
   format). The seed ADR `0001` explains the practice — keep it.
-- **Delete `CONTEXT.md`** if there's no domain worth pinning down yet; add it later.
+- **Delete `GLOSSARY.md`** if there's no domain worth pinning down yet; add it later.
 
 ## 4. Design system — replace the reflex defaults
 
