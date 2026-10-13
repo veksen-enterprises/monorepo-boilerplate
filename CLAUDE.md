@@ -100,7 +100,8 @@ See `.claude/rules/git-workflow.md` for full conventions.
 
 ## Agent Skills
 
-- `.claude/skills/` bundles third-party skills vendored via [`npx skills`](https://github.com/vercel-labs/skills) from `mattpocock/skills` (engineering/workflow), `emilkowalski/skills` (design/motion), and `jakubkrehel/skills` (`better-colors`, `better-typography` — wired into `/design-review` alongside Emil's design skills). Sources and hashes are tracked in `skills-lock.json`.
+- Matt Pocock's engineering and productivity skills (`to-spec`, `to-tickets`, `triage`, `tdd`, `grill-with-docs` and the rest) come from the `mattpocock-skills` Claude Code plugin (v1.3+), not from this repo. Install it once per machine: add the `mattpocock/skills` marketplace, then `claude plugin install mattpocock-skills@mattpocock`.
+- `.claude/skills/` bundles the other third-party skills, vendored via [`npx skills`](https://github.com/vercel-labs/skills): `emilkowalski/skills` (design/motion), `jakubkrehel/skills` (`better-colors`, `better-typography` — wired into `/design-review` alongside Emil's design skills), and a few `mattpocock/skills` the plugin doesn't ship. Sources and hashes are tracked in `skills-lock.json`.
 - Update or prune with `npx skills check` / `npx skills add`. The vendored tree is excluded from oxfmt/oxlint — don't hand-edit skills, re-sync from source.
 - `react-doctor` is repo-owned (not tracked by `skills-lock.json`): it wraps `npx react-doctor` to scan React changes for lint/a11y/perf/architecture regressions. `/finish` runs it on React diffs.
 
