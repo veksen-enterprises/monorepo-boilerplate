@@ -19,4 +19,10 @@ if echo "$cmd" | grep -qE '(^|\s|&&|\|\||;)\s*git\s+commit'; then
   fi
 fi
 
+# Remind at the moment a subject is written: commits land as-is under rebase merges.
+if echo "$cmd" | grep -qE '(^|\s|&&|\|\||;)\s*(git\s+commit|gh\s+pr\s+(create|edit))'; then
+  subject="The subject says what changed and why. If behavior changes, the effect must be in it, with the technical change when it fits; a refactor's subject is the technical change."
+  jq -n --arg ctx "$subject" '{hookSpecificOutput:{hookEventName:"PreToolUse",additionalContext:$ctx}}'
+fi
+
 exit 0
