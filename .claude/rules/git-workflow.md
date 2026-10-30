@@ -20,12 +20,27 @@ globs: "*"
 - Format: `<type>(<scope>): <short infinitive message>`
 - Scope: the module/component/area affected (e.g. `ui`, `app`, `config`, `ci`).
 - Message: infinitive verb, lowercase, no period ("add", not "added"/"adds").
+- The subject says what changed and why. This repo rebase-merges, so the commit subject is what
+  lands in history.
+  - When the change alters behavior, the effect goes in the subject, with the technical change
+    when it fits.
+  - A refactor or chore has no effect beyond the code, so its subject is the technical change.
+  - Never let the mechanism stand in for the effect.
+  - Mechanism hiding the effect: `fix(test): raise pglite test timeout for cold CI runners` names
+    a config value and hides that the api-fastify suite was failing in CI. Better:
+    `fix(test): stop api-fastify tests timing out on cold CI runners`.
+  - Both in one line: `fix(test): stop backend tests running twice from compiled dist`.
 - One logical change per commit.
 - Reference an issue in the body when relevant: `Closes #<n>`.
 
 ## PR Convention
 
 - Title format: `<type>(<scope>): <description>`
+- The title follows the commit subject rule: it says what changed and why, and a behavior change
+  puts the effect in it. For a one-commit PR it is usually that commit's subject.
+  - Mechanism hiding the effect: `fix(test): raise pglite test timeout for cold CI runners`.
+    Better: `fix(test): stop api-fastify tests timing out on cold CI runners`.
+  - Both in one line: `fix(test): stop backend tests running twice from compiled dist`.
 - Examples:
   - `feat(ui): add avatar component`
   - `fix(app): handle empty search result`

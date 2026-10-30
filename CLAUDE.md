@@ -84,6 +84,9 @@ directory. Delete these pieces if the project has no DB.
 - Feature branches only. NEVER commit to `main`.
 - Branch: `<type>/<short-description>` (e.g. `feat/user-menu`, `fix/null-search`).
 - Commits: `<type>(<scope>): <message>` — one logical change per commit.
+- Commit subjects and PR titles say what changed and why. A behavior change puts the effect in
+  the subject; never let the mechanism stand in for it. A refactor's subject is the technical
+  change.
 - Before completing: rebase against `main`, re-run all checks.
 - Never force-push shared history or expose secrets.
 
